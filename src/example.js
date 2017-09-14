@@ -1,4 +1,4 @@
-const createStore = require('./asyncStorageHelper')
+import createStore from './asyncStorageHelper'
 
 const OnboardingStore = createStore({
   onboardingCompleted: {
