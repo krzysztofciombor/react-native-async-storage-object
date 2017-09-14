@@ -1,4 +1,4 @@
-const storage = require('./mockStorageProvider')
+import storage from './mockStorageProvider'
 
 const DEFAULT_KEY_OPTIONS = {
   get: true,
@@ -69,5 +69,5 @@ function createStore(storeProperties, options) {
   return Store
 }
 
-module.exports = createStore
+export default createStore
 

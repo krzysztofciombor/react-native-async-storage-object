@@ -4,6 +4,7 @@
   "description": "Simple AsyncStorage wrapper",
   "main": "example.js",
   "scripts": {
+    "build": "./node_modules/.bin/babel ./src --experimental --source-maps-inline -d ./dist",
     "test": "jest"
   },
   "author": "Krzysztof Ciombor",

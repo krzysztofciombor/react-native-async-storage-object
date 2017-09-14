@@ -26,5 +26,5 @@ class MockStorage {
 
 const mockStorage = new MockStorage()
 
-module.exports = mockStorage
+export default mockStorage
 
