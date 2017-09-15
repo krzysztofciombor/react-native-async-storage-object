@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-import createStore from '../src/asyncStorageHelper'
+import createStore from '../src/asyncStorageObjectHelper'
 
 test('createStore returns store with appropriate methods', () => {
   const store = createStore({

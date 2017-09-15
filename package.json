@@ -1,7 +1,7 @@
 {
-  "name": "asyncstoragehelper",
+  "name": "asyncstorageobjecthelper",
   "version": "0.0.1",
-  "description": "Simple AsyncStorage wrapper",
+  "description": "Simple AsyncStorage Object Helper",
   "main": "example.js",
   "scripts": {
     "build": "./node_modules/.bin/babel ./src --experimental --source-maps-inline -d ./dist",

@@ -1,4 +1,4 @@
-import createStore from './asyncStorageHelper'
+import createStore from './asyncStorageObjectHelper'
 
 const OnboardingStore = createStore({
   onboardingCompleted: {
