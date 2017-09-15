@@ -1,9 +1,9 @@
 /* eslint-env jest */
 
-import createStore from '../src/asyncStorageObjectHelper'
+import createASO from '../src/asyncStorageObjectHelper'
 
-test('createStore returns store with appropriate methods', () => {
-  const store = createStore({
+test('createASO returns store with appropriate methods', () => {
+  const store = createASO({
     test: {
       get: true,
       set: true,
@@ -16,8 +16,8 @@ test('createStore returns store with appropriate methods', () => {
   expect(store.removeTest).toBeDefined()
 })
 
-test('createStore respects false for methods', () => {
-  const store = createStore({
+test('createASO respects false for methods', () => {
+  const store = createASO({
     test: {
       get: false,
       set: false,
@@ -30,8 +30,8 @@ test('createStore respects false for methods', () => {
   expect(store.removeTest).toBeUndefined()
 })
 
-test('createStore methods work correctly', () => {
-  const store = createStore({
+test('createASO methods work correctly', () => {
+  const store = createASO({
     test: {
       get: true,
       set: true,
@@ -48,8 +48,8 @@ test('createStore methods work correctly', () => {
   expect(store.getTest()).resolves.toBeUndefined()
 })
 
-test('createStore sets defaults to true', () => {
-  const store = createStore({
+test('createASO sets defaults to true', () => {
+  const store = createASO({
     test,
   })
 
@@ -58,8 +58,8 @@ test('createStore sets defaults to true', () => {
   expect(store.removeTest).toBeDefined()
 })
 
-test('createStore works for objects', () => {
-  const store = createStore({
+test('createASO works for objects', () => {
+  const store = createASO({
     test,
   })
 

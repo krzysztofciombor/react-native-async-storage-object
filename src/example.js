@@ -1,6 +1,6 @@
-import createStore from './asyncStorageObjectHelper'
+import createASO from './asyncStorageObjectHelper'
 
-const OnboardingStore = createStore({
+const OnboardingStore = createASO({
   onboardingCompleted: {
     get: true,
     set: true,
