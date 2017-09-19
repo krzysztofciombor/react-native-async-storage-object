@@ -23,6 +23,15 @@ const UserStore = {
 }
 ```
 
+
+### Motivation
+
+The benefits of using ASO objects instead of accessing AsyncStorage directly are as follows:
+* One does not have to worry about keeping keys consistent across get/set/remove methods
+* Accessing non-existent key will throw `undefined is not a function` rather than result in undefined object being returned
+* Accessing Async Storage may be restricted to get-only object to enforce immutability
+
+
 ## ASO Helper
 
 This library exposes one method: `createASO` which facilitates creating ASO.
