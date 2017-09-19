@@ -1,10 +1,12 @@
 /* eslint-env jest */
 
-import createASO from '../src/asyncStorageObjectHelper'
+import createASODefault, { asoFactory } from '../src/asyncStorageObjectHelper'
 import storage from '../src/mockStorageProvider'
 
+const createASO = asoFactory(storage)
+
 test('createASO returns store with appropriate methods', () => {
-  const store = createASO(storage, {
+  const store = createASO({
     test: {
       get: true,
       set: true,
@@ -18,7 +20,7 @@ test('createASO returns store with appropriate methods', () => {
 })
 
 test('createASO respects false for methods', () => {
-  const store = createASO(storage, {
+  const store = createASO({
     test: {
       get: false,
       set: false,
@@ -32,7 +34,7 @@ test('createASO respects false for methods', () => {
 })
 
 test('createASO methods work correctly', () => {
-  const store = createASO(storage, {
+  const store = createASO({
     test: {
       get: true,
       set: true,
@@ -50,7 +52,7 @@ test('createASO methods work correctly', () => {
 })
 
 test('createASO sets defaults to true', () => {
-  const store = createASO(storage, {
+  const store = createASO({
     test,
   })
 
@@ -60,7 +62,7 @@ test('createASO sets defaults to true', () => {
 })
 
 test('createASO works for objects', () => {
-  const store = createASO(storage, {
+  const store = createASO({
     test,
   })
 
@@ -74,5 +76,15 @@ test('createASO works for objects', () => {
   store.setTest(testObject)
 
   expect(store.getTest()).resolves.toEqual(testObject)
+})
+
+test('createASO works without asoFactory', () => {
+  const store = createASODefault(storage, {
+    test,
+  })
+
+  expect(store.getTest).toBeDefined()
+  expect(store.setTest).toBeDefined()
+  expect(store.removeTest).toBeDefined()
 })
 

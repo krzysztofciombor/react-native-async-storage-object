@@ -55,7 +55,7 @@ function appendMethodIfDesired(store, storage, key, keyOptions, methodName, meth
   return store
 }
 
-function createASO(storage, storeProperties, options) {
+export default function createASO(storage, storeProperties, options) {
   var Store = {}
   const { prefix } = getWithDefaults(options, DEFAULT_OPTIONS)
   for (var key in storeProperties) {
@@ -67,5 +67,9 @@ function createASO(storage, storeProperties, options) {
   return Store
 }
 
-export default createASO
+export function asoFactory(storage) {
+  return function(storeProperties, options) {
+    return createASO(storage, storeProperties, options)
+  }
+}
 
