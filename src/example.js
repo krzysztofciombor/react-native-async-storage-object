@@ -1,6 +1,7 @@
 import createASO from './asyncStorageObjectHelper'
+import storage from './mockStorageProvider'
 
-const OnboardingStore = createASO({
+const OnboardingStore = createASO(storage, {
   onboardingCompleted: {
     get: true,
     set: true,

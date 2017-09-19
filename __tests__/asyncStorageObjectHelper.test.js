@@ -1,9 +1,10 @@
 /* eslint-env jest */
 
 import createASO from '../src/asyncStorageObjectHelper'
+import storage from '../src/mockStorageProvider'
 
 test('createASO returns store with appropriate methods', () => {
-  const store = createASO({
+  const store = createASO(storage, {
     test: {
       get: true,
       set: true,
@@ -17,7 +18,7 @@ test('createASO returns store with appropriate methods', () => {
 })
 
 test('createASO respects false for methods', () => {
-  const store = createASO({
+  const store = createASO(storage, {
     test: {
       get: false,
       set: false,
@@ -31,7 +32,7 @@ test('createASO respects false for methods', () => {
 })
 
 test('createASO methods work correctly', () => {
-  const store = createASO({
+  const store = createASO(storage, {
     test: {
       get: true,
       set: true,
@@ -49,7 +50,7 @@ test('createASO methods work correctly', () => {
 })
 
 test('createASO sets defaults to true', () => {
-  const store = createASO({
+  const store = createASO(storage, {
     test,
   })
 
@@ -59,7 +60,7 @@ test('createASO sets defaults to true', () => {
 })
 
 test('createASO works for objects', () => {
-  const store = createASO({
+  const store = createASO(storage, {
     test,
   })
 
