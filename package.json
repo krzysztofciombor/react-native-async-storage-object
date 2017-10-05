@@ -1,5 +1,5 @@
 {
-  "name": "asyncstorageobjecthelper",
+  "name": "async-storage-object-helper",
   "version": "0.0.1",
   "description": "Simple AsyncStorage Object Helper",
   "main": "example.js",

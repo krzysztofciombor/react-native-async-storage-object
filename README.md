@@ -23,7 +23,6 @@ const UserStore = {
 }
 ```
 
-
 ### Motivation
 
 The benefits of using ASO objects instead of accessing AsyncStorage directly are as follows:
@@ -36,10 +35,11 @@ The benefits of using ASO objects instead of accessing AsyncStorage directly are
 
 This library exposes one method: `createASO` which facilitates creating ASO.
 ```js
-function createASO(storeProperties: Object, options: Object): Store
+function createASO(storage: Storage, storeProperties: Object, options: Object): Store
 ```
 
-where `storeProperties` is an object containing the desired store properties.
+where `storage` is an Object that exposes the same interface as AsyncStorage (for potential extension point),
+`storeProperties` is an object containing the desired store properties.
 Each property is described by three boolean valued indicating if a corresponding method
 should be generated within the store:
 ```js
@@ -55,6 +55,11 @@ Additional options can be passed in `options` object:
 options = {
   prefix: String? // an additional prefix string that will be prepended to the objects saved within AsyncStorage.
 }
+```
+
+One can also use a `asoFactory(storage: Storage)` which provides a curried version of `createASO` that will always use a given storage, for example:
+```js
+const asyncStorageHelper = asoFactory(AsyncStorage)
 ```
 
 ### Example
@@ -75,4 +80,3 @@ userStore.getUserLoggedIn()
   .then(userLoggedIn => console.log(userLoggedIn))
 userStore.removeUserLoggedIn()
 ```
-
